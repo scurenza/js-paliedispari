@@ -24,9 +24,7 @@ if(wordIsAPalindrome(userWord)) {
 
 function wordIsAPalindrome (wordToCheck) {
     let isPalindrome = false;
-    for (let i = 0; i < wordToCheck.length; i++) {
-        normalWord += wordToCheck[i];
-    }
+    normalWord = wordToCheck;
 
     for(let j = wordToCheck.length - 1; j >= 0; j--) {
         reverseWord += wordToCheck[j];
