@@ -5,35 +5,56 @@
 // Prendere un input
 let userWord = [];
 userWord = prompt ("Scrivi una parola e ti dirò se è o no palindroma");
+let normalWord = [];
+let reverseWord = [];
 
-if (wordIsAPalindrome(userWord)) {
+if(wordIsAPalindrome(userWord)) {
     console.log("La parola è palindroma!");
 } else {
-    console.log("La parola non è palindroma :(");
+    console.log("La parola non è palindroma:(");
 }
 
 
 
-// Comparo le lettere della stringa con un ciclo for
-
-// for (let i = 0; i <userWord.length; i++) {
-//     if (userWord[i] === userWord[lessLength - i]) {
-//         console.log("é palindroma!");
-//     } else {
-//         console.log(("non è palindroma"));
-//     }
-// }
-
+/**
+ * Description Check if a word is a palindrome
+ * @param {string} wordToCheck
+ * @returns {boolean} isPalindrome
+ */
 
 function wordIsAPalindrome (wordToCheck) {
     let isPalindrome = false;
-    let lessLength = wordToCheck.length - 1;
-    for (let i = 0; i < wordToCheck; i++) {
-        if (wordToCheck[i] === wordToCheck[lessLength - i]) {
-            isPalindrome = true;
-        } else {
-            isPalindrome = false;
-        }
+    for (let i = 0; i < wordToCheck.length; i++) {
+        normalWord += wordToCheck[i];
     }
-    return isPalindrome;
+
+    for(let j = wordToCheck.length - 1; j >= 0; j--) {
+        reverseWord += wordToCheck[j];
+    }
+
+    if (normalWord === reverseWord) {
+        isPalindrome = true;
+        
+    } else {
+        isPalindrome = false;
+    }
+    return isPalindrome
 }
+
+
+// Ragionamento con cicli for
+
+// for (let i = 0; i < userWord.length; i++) {
+//     normalWord += userWord[i];
+// }
+
+
+// for (let j = userWord.length - 1; j >= 0; j--) {
+//     reverseWord += userWord[j];
+// }
+
+// if (normalWord === reverseWord) {
+//     console.log("La parola è palindroma!");
+// } else {
+//     console.log("La parola non è palindroma:(");
+// }
